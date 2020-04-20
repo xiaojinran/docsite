@@ -21,14 +21,14 @@ gulp.task('webpack-dev-server', () => {
   myConfig.plugins.push(new webpack.SourceMapDevToolPlugin({}));
   // Start a webpack-dev-server
   new WebpackDevServer(webpack(myConfig), {
-    publicPath: `http://127.0.0.1:${port}/build/`,
+    publicPath: `http://0.0.0.0:${port}/build/`,
     stats: {
       colors: true,
     },
-  }).listen(port, '127.0.0.1', err => {
+  }).listen(port, '0.0.0.0', err => {
     if (err) throw new gutil.PluginError('webpack-dev-server', err);
-    opn(`http://127.0.0.1:${port}/`);
-    gutil.log('[webpack-dev-server]', `http://127.0.0.1:${port}/webpack-dev-server/index.html`);
+    opn(`http://0.0.0.0:${port}/`);
+    gutil.log('[webpack-dev-server]', `http://0.0.0.0:${port}/webpack-dev-server/index.html`);
   });
 });
 
