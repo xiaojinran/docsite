@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="keywords" content="gituse1" />
+	<meta name="description" content="gituse1" />
+	<!-- 网页标签标题 -->
+	<title>gituse1</title>
+	<link rel="shortcut icon" href="/docsite/img/docsite.ico"/>
+	<link rel="stylesheet" href="/docsite/build/blogDetail.css" />
+</head>
+<body>
+	<div id="root"><div class="blog-detail-page" data-reactroot=""><header class="header-container header-container-normal"><div class="header-body"><a href="/docsite/zh-cn/index.html"><img class="logo" src="/docsite/img/dubbo_colorful.png"/></a><div class="search search-normal"><span class="icon-search"></span></div><span class="language-switch language-switch-normal">En</span><div class="header-menu"><img class="header-menu-toggle" src="/docsite/img/system/menu_gray.png"/><ul><li class="menu-item menu-item-normal"><a href="/docsite/zh-cn/index.html" target="_self">首页</a></li><li class="menu-item menu-item-normal"><a href="/docsite/zh-cn/docs/demo1.html" target="_self">文档</a></li><li class="menu-item menu-item-normal menu-item-normal-active"><a href="/docsite/zh-cn/blog/index.html" target="_self">博客</a></li><li class="menu-item menu-item-normal"><a href="/docsite/zh-cn/community/index.html" target="_self">社区</a></li></ul></div></div></header><section class="blog-content markdown-body"><h4>git介绍</h4>
+<ul>
+<li>Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。 [1]  Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。（来自百度百科：<a href="https://baike.baidu.com/item/GIT/12647237?fr=aladdin">https://baike.baidu.com/item/GIT/12647237?fr=aladdin</a>）</li>
+</ul>
+<h4>代码库概念</h4>
+<ul>
+<li>
+<p>在配置管理中，一般有3个库的概念，开发库、受控库、产品库</p>
+</li>
+<li>
+<p><strong>开发库</strong>是开发人员修改代码的地方。</p>
+</li>
+<li>
+<p><strong>受控库</strong>是测试版本代码存放的地方。</p>
+</li>
+<li>
+<p><strong>产品库</strong>是测试通过版本存放的地方。</p>
+</li>
+</ul>
+<h4>Hello World</h4>
+<p><em>通过一个简单的项目，了解如何使用git同步项目的代码和文档。</em></p>
+<ol>
+<li>登录github<a href="https://github.com/new">新建一个repo仓库</a>，即项目仓库
+<img src="https://img-blog.csdnimg.cn/2020042010200476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9qaW5yYW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>获取项目地址
+<img src="https://img-blog.csdnimg.cn/20200420102110270.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9qaW5yYW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>得到项目的git地址后，通过git客户端进行clone，这里使用linux cli命令行</li>
+</ol>
+<pre><code class="language-bash">~ git <span class="hljs-built_in">clone</span> https://github.com/xiaojinran/helloworld.git
+Cloning into <span class="hljs-string">'helloworld'</span>...
+remote: Enumerating objects: 3, <span class="hljs-keyword">done</span>.
+remote: Counting objects: 100% (3/3), <span class="hljs-keyword">done</span>.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), <span class="hljs-keyword">done</span>.
+</code></pre>
+<ol start="4">
+<li>在本地目录新建文件或者文档后，通过git add提交到本地仓库</li>
+</ol>
+<ul>
+<li>新建一个文档</li>
+</ul>
+<pre><code class="language-bash">~ cat &gt;HelloWorld.html &lt;&lt;EOF
+&gt; &lt;p&gt;HellWorld,Welcome github,Hoping you enjoy it!!!&lt;/p&gt;
+&gt; EOF
+~ ls
+HelloWorld.html  README.md
+</code></pre>
+<ul>
+<li>提交并确认到本地仓库</li>
+</ul>
+<pre><code class="language-bash">git add .
+git commit
+
+Add HelloWorld.html
+<span class="hljs-comment"># Please enter the commit message for your changes. Lines starting</span>
+<span class="hljs-comment"># with '#' will be ignored, and an empty message aborts the commit.</span>
+<span class="hljs-comment"># On branch master</span>
+<span class="hljs-comment"># Your branch is ahead of 'origin/master' by 1 commit.</span>
+<span class="hljs-comment">#   (use "git push" to publish your local commits)</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># Changes to be committed:</span>
+<span class="hljs-comment">#   (use "git reset HEAD &lt;file&gt;..." to unstage)</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment">#       new file:   HelloWorld.html</span>
+</code></pre>
+<ol start="5">
+<li>使用git push提交到github账户</li>
+</ol>
+<pre><code class="language-bash"> ~ git push origin
+</code></pre>
+<ul>
+<li>输入账号和密码</li>
+</ul>
+<pre><code class="language-bash">Username <span class="hljs-keyword">for</span> <span class="hljs-string">'https://github.com'</span>: xiaojinran
+Password <span class="hljs-keyword">for</span> <span class="hljs-string">'https://xiaojinran@github.com'</span>: 
+Counting objects: 4, <span class="hljs-keyword">done</span>.
+Compressing objects: 100% (3/3), <span class="hljs-keyword">done</span>.
+Writing objects: 100% (3/3), 344 bytes | 0 bytes/s, <span class="hljs-keyword">done</span>.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/xiaojinran/helloworld.git
+   9b5f7fd..8afe9f8  master -&gt; master
+</code></pre>
+<ol start="6">
+<li><a href="http://xn--github-oz2li34m.com">登录github.com</a>，即可查到项目已经被更新了
+<img src="https://img-blog.csdnimg.cn/20200420104153757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9qaW5yYW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+<h4>托管项目产品文档</h4>
+<ul>
+<li>如果你的项目产品文档是静态的，可以托管在github上面，具体配置如下：</li>
+</ul>
+<ol>
+<li>打开项目设置
+<img src="https://img-blog.csdnimg.cn/20200420104901390.png" alt="在这里插入图片描述"></li>
+<li>设置托管分支和目录
+<img src="https://img-blog.csdnimg.cn/20200420105049998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9qaW5yYW4=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>访问产品文档地址
+<a href="https://xiaojinran.github.io/helloworld/HelloWorld.html">https://xiaojinran.github.io/helloworld/HelloWorld.html</a>
+<img src="https://img-blog.csdnimg.cn/20200420105444641.png" alt="在这里插入图片描述"></li>
+</ol>
+<h4>小结</h4>
+<ul>
+<li>一个简单的对github的使用，希望能帮助入门的开发者或者文件管理者了解代码仓库的概念，github提供了非常多的有用的工具，比如通知机制、回调机制等，希望大家可以多多发掘。</li>
+</ul>
+</section><footer class="footer-container"><div class="footer-body"><img src="/docsite/img/dubbo_gray.png"/><div class="cols-container"><div class="col col-12"><h3>免责声明</h3><p>免责声明的具体内容</p></div><div class="col col-6"><dl><dt>文档</dt><dd><a href="/docsite/zh-cn/docs/demo1.html" target="_self">概览</a></dd><dd><a href="/docsite/zh-cn/docs/demo2.html" target="_self">快速开始</a></dd><dd><a href="/docsite/zh-cn/docs/dir/demo3.html" target="_self">开发者指南</a></dd></dl></div><div class="col col-6"><dl><dt>资源</dt><dd><a href="/docsite/zh-cn/blog/index.html" target="_self">博客</a></dd><dd><a href="/docsite/zh-cn/community/index.html" target="_self">社区</a></dd></dl></div></div><div class="copyright"><span>Copyright © 2018 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></div></div></footer></div></div>
+	<script src="https://f.alicdn.com/react/15.4.1/react-with-addons.min.js"></script>
+	<script src="https://f.alicdn.com/react/15.4.1/react-dom.min.js"></script>
+	<script>
+		window.rootPath = '/docsite';
+  </script>
+	<script src="/docsite/build/blogDetail.js"></script>
+</body>
+</html>

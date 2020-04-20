@@ -107,6 +107,13 @@ export default {
         desc: '博客描述，总结博客的主体内容',
         link: '/zh-cn/blog/blog7.html',
       },
+      {
+        title: 'Git 使用',
+        author: 'JimRn',
+        dateStr: 'April 22nd, 2018',
+        desc: 'Git 初步使用',
+        link: '/zh-cn/blog/gituse1.html',
+      }
     ],
   },
 };
